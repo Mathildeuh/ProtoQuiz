@@ -1,0 +1,10 @@
+name: ProtoQuiz
+version: '${version}'
+main: fr.mathildeuh.protoquiz.ProtoQuiz
+api-version: '1.20'
+commands:
+  protoquiz:
+    description: Lance le jeu de quiz ProtoQuiz sur un joueur
+    usage: /<command> <joueur>
+    permission: protoquiz.start
+
