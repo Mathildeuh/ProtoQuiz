@@ -1,12 +1,1 @@
-{
-  "stats": {
-    "minecraft:custom": {
-      "minecraft:time_since_rest": 608,
-      "minecraft:leave_game": 1,
-      "minecraft:play_time": 608,
-      "minecraft:time_since_death": 608,
-      "minecraft:total_world_time": 608
-    }
-  },
-  "DataVersion": 3700
-}
+{"stats":{"minecraft:used":{"minecraft:bow":16,"minecraft:snow":289,"minecraft:snow_block":17,"minecraft:command_block":1,"minecraft:oak_button":1,"minecraft:powder_snow_bucket":112,"minecraft:snowball":1475},"minecraft:dropped":{"minecraft:rotten_flesh":4},"minecraft:custom":{"minecraft:time_since_rest":83459,"minecraft:crouch_one_cm":1551,"minecraft:play_time":83459,"minecraft:sprint_one_cm":57615,"minecraft:walk_one_cm":16685,"minecraft:sneak_time":1349,"minecraft:mob_kills":1,"minecraft:drop":2,"minecraft:jump":732,"minecraft:damage_dealt":30,"minecraft:leave_game":60,"minecraft:time_since_death":83459,"minecraft:total_world_time":83459,"minecraft:fall_one_cm":1463,"minecraft:fly_one_cm":522492},"minecraft:picked_up":{"minecraft:rotten_flesh":4,"minecraft:oak_button":1,"minecraft:snowball":219},"minecraft:killed":{"minecraft:skeleton":1}},"DataVersion":3700}

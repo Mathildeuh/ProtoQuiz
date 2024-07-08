@@ -1,1 +1,25 @@
-{"stats":{"minecraft:custom":{"minecraft:jump":12,"minecraft:time_since_rest":48848,"minecraft:play_time":48848,"minecraft:leave_game":45,"minecraft:sprint_one_cm":989,"minecraft:time_since_death":48848,"minecraft:walk_one_cm":2403,"minecraft:total_world_time":48848,"minecraft:fly_one_cm":8589}},"DataVersion":3700}
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:goat_spawn_egg": 15,
+      "minecraft:dirt": 9
+    },
+    "minecraft:custom": {
+      "minecraft:jump": 295,
+      "minecraft:time_since_rest": 77803,
+      "minecraft:walk_one_cm": 14807,
+      "minecraft:damage_dealt": 50,
+      "minecraft:crouch_one_cm": 696,
+      "minecraft:leave_game": 91,
+      "minecraft:sprint_one_cm": 25463,
+      "minecraft:play_time": 231692,
+      "minecraft:time_since_death": 77574,
+      "minecraft:walk_on_water_one_cm": 61,
+      "minecraft:deaths": 1,
+      "minecraft:sneak_time": 758,
+      "minecraft:total_world_time": 231692,
+      "minecraft:fly_one_cm": 261931
+    }
+  },
+  "DataVersion": 3700
+}

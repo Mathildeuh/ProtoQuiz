@@ -1,5 +1,6 @@
 package fr.mathildeuh.protoquiz;
 
+import fr.mathildeuh.protoquiz.commands.ProtoQuizCommand;
 import fr.mathildeuh.protoquiz.quiz.QuizData;
 import fr.mathildeuh.protoquiz.quiz.QuizRunnable;
 import org.bukkit.Bukkit;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.Random;
 
 public final class ProtoQuiz extends JavaPlugin implements Listener {
-    private QuizData quizData;
+    public static QuizData quizData;
 
     @Override
     public void onEnable() {
@@ -30,7 +31,10 @@ public final class ProtoQuiz extends JavaPlugin implements Listener {
         getLogger().info("Loaded questions: " + quizData.getQuestions().size());
 
         // Start the quiz task
-        new QuizRunnable(quizData).runTaskTimer(this, 0, 36000); // Execute every 30 minutes (36000 ticks)
+        new QuizRunnable(quizData).runTask(JavaPlugin.getPlugin(ProtoQuiz.class));
+
+
+        getCommand("protoquiz").setExecutor(new ProtoQuizCommand(this));
     }
 
     public QuizData getQuizData() {
@@ -47,8 +51,10 @@ public final class ProtoQuiz extends JavaPlugin implements Listener {
         Player player = event.getPlayer();
 
         if (player.hasMetadata("quizAnswer")) {
-            String correctAnswer = player.getMetadata("quizAnswer").get(0).asString();
-            if (event.getMessage().equalsIgnoreCase(correctAnswer)) {
+            String correctAnswer = player.getMetadata("quizAnswer").get(0).asString().toLowerCase();
+            String lastQuestion = player.getMetadata("quizQuestion").get(0).asString();
+            String message = event.getMessage().toLowerCase();
+            if (message.contains(correctAnswer.toLowerCase())) {
                 Bukkit.getScheduler().runTask(this, () -> {
                     player.sendMessage(ChatColor.GREEN + "Bonne réponse! Vous pouvez maintenant jouer.");
                     player.removeMetadata("quizAnswer", this);
@@ -62,7 +68,10 @@ public final class ProtoQuiz extends JavaPlugin implements Listener {
                     String answer = quizData.getAnswer(question);
                     player.setMetadata("quizAnswer", new FixedMetadataValue(this, answer));
                     player.setMetadata("quizQuestion", new FixedMetadataValue(this, question));
-                    player.kickPlayer(ChatColor.RED + "Mauvaise réponse! La bonne réponse était : " + correctAnswer + ChatColor.GREEN + "\n\nNouvelle question: " + question);
+                    player.kickPlayer(ChatColor.RED + "Mauvaise réponse! " +
+                            "\n\nLa question était : " + lastQuestion +
+                            "\nLa bonne réponse était : " + correctAnswer
+                            + ChatColor.GREEN + "\n\nNouvelle question: " + question);
                 });
             }
             event.setCancelled(true);
@@ -72,6 +81,12 @@ public final class ProtoQuiz extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        if (player.getName().equalsIgnoreCase("Protovun")) {
+            player.setPlayerListName("§5Protovun");
+            player.setDisplayName("§5Protovun");
+            player.setPlayerListHeaderFooter("§5Protovun", "§5Protovun");
+            event.setJoinMessage("§5Protovun à trouvé l'ip du serveur, cachez vous !");
+        }
         if (player.hasMetadata("quizQuestion")) {
             String question = player.getMetadata("quizQuestion").get(0).asString();
             player.sendMessage(ChatColor.RED + "Vous devez répondre à la question pour pouvoir jouer.");

@@ -4,5 +4,23 @@
     "name": "Mathildeuh",
     "level": 4,
     "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "06ac8ba0-37cd-4974-9aa7-274ac6ede79f",
+    "name": "Protovun",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "d722c92f-b74a-4dd0-9523-1eaebd08c1fa",
+    "name": "Beretiful",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "497295ed-66b9-4d38-aa0c-f20a92e0b9db",
+    "name": "Schakavun",
+    "level": 4,
+    "bypassesPlayerLimit": false
   }
 ]
